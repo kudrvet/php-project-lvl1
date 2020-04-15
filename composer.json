@@ -1,0 +1,11 @@
+{
+    "name": "vitaliy/php-project-lvl1",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vitaliy",
+            "email": "kudrvet@gmail.com"
+        }
+    ],
+    "require": {}
+}
