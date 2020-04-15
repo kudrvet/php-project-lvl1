@@ -1,6 +1,7 @@
 {
     "name": "vitaliy/php-project-lvl1",
     "type": "project",
+    "bin": ["bin/php-package"],
     "authors": [
         {
             "name": "Vitaliy",
