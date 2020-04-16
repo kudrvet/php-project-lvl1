@@ -1,12 +1,18 @@
 {
-    "name": "vitaliy/php-project-lvl1",
-    "type": "project",
-    "bin": ["bin/php-package"],
-    "authors": [
-        {
-            "name": "Vitaliy",
-            "email": "kudrvet@gmail.com"
-        }
-    ],
-    "require": {}
+	"name": "vitaliy/php-project-lvl1",
+	"type": "project",
+	"bin": ["bin/php-package"],
+	"authors": [{
+		"name": "Vitaliy",
+		"email": "kudrvet@gmail.com"
+	}],
+	"require": {
+		"wp-cli/php-cli-tools": "^0.11.11"
+	},
+	"autoload": {
+		"files": [
+			"src/Cli.php"
+		]
+	}
 }
+   
