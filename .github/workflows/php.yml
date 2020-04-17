@@ -6,14 +6,12 @@ on:
  
 jobs:
   make-lint:
-    name: Make lint
-    defaults:
-      run:
-        shell: bash
     runs-on: macos-latest
+    name: Make lint
     steps:
-      - name: run make lint
-        run: make install
+      - uses: actions/checkout@v2
+      - name: run linter
+        run: make lint
 
 
 
