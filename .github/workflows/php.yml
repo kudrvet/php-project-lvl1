@@ -1,5 +1,8 @@
 name: PHP Composer
-
+defaults:
+  run:
+    shell: bash
+    working-directory: ./
 on:
   push:
     branches: [ master ]
