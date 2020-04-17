@@ -10,7 +10,13 @@ jobs:
     name: Make lint
     steps:
       - uses: actions/checkout@v2
-      - uses: nick-zh/composer-php@master
+        
+      - name: Setup PHP 
+        uses: shivammathur/setup-php@v1
+        with:
+          # Specify the PHP version
+          php-version: '7.4'
+        
       - name: run linter
         run: make lint
 
