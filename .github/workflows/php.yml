@@ -16,6 +16,7 @@ jobs:
         with:
           # Specify the PHP version
           php-version: '7.4'
+          tools: phpcs
         
       - name: run linter
         run: make lint
