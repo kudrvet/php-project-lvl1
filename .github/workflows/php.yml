@@ -10,6 +10,7 @@ jobs:
     name: Make lint
     steps:
       - uses: actions/checkout@v2
+      - uses: nick-zh/composer-php@master
       - name: run linter
         run: make lint
 
