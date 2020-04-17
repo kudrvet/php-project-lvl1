@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: run make lint
-        run: make make lint
+        run: make install
 
 
 
