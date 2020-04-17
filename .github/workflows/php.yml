@@ -1,7 +1,5 @@
 name: PHP Composer
-defaults:
-  run:
-    shell: bash
+
 on:
   push:
     branches: [ master ]
@@ -9,9 +7,10 @@ on:
 jobs:
   make-lint:
     name: Make lint
-  
+    defaults:
+      run:
+        shell: bash
     runs-on: macos-latest
-
     steps:
       - name: run make lint
         run: make lint
