@@ -6,7 +6,7 @@ on:
  
 jobs:
   make lint:
-    name: Make lint
+    name: Make-lint
   
     runs-on: macos-latest
 
