@@ -1,7 +1,7 @@
 {
 	"name": "vitaliy/php-project-lvl1",
 	"type": "project",
-	"bin": ["bin/php-package"],
+	"bin": ["bin/brain-even"],
 	"authors": [{
 		"name": "Vitaliy",
 		"email": "kudrvet@gmail.com"
