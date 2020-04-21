@@ -2,8 +2,13 @@
 
 <?php
 
-//require __DIR__. '/../vendor/autoload.php';
+
 require __DIR__. '/../vendor/autoload.php';
-use BrainGames\Cli;
-Cli\run();
+use BrainGames\Logic;
+
+Logic\startGame();
+
+
+
+
 

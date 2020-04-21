@@ -14,7 +14,8 @@
 	},
 	"autoload": {
 		"files": [
-			"src/Cli.php"
+			"src/Cli.php",
+			"src/Logic.php"
 		]
 	},
 	"require-dev": {
