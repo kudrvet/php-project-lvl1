@@ -2,52 +2,55 @@
 
 namespace BrainGames\Logic;
 
-use function cli\line;
-use function cli\prompt;
-use function BrainGames\Cli\run;
 
-function isParity($number)
-{
-    $result = ($number % 2 == 0) ? true : false;
-    return $result;
-}
+use function BrainGames\Cli\congratulationsConsoleOutput;
+use function BrainGames\Cli\getUserAnswerAndConsoleOutput;
+use function BrainGames\Cli\getUserNameAndSayHello;
+use function BrainGames\Cli\greetingConsoleOutput;
+use function BrainGames\Cli\questionConsoleUotput;
+use function BrainGames\Cli\rightConsoleOutput;
+use function BrainGames\Cli\wrongConsoleOutput;
+use function BrainGames\Games\EvenGame\getRightAnswerOfEvenGame;
+use function BrainGames\Games\CalcGame\getRightAnswerOfCalcGame;
 
-function isCorrectAnswer($isParity, $answer)
-{
-    $yesCondition = ($isParity == true) && ($answer == "yes");
-    $noCondition = ($isParity == false) && ($answer == "no");
-    return  ($yesCondition || $noCondition) ? true : false;
-}
 
-function startGame()
+function startGame($gameName)
 {
-    $needfulCountOfCorrectAnswers = 3;
+    greetingConsoleOutput($gameName);
+    $userName = getUserNameAndSayHello();
+
     $countOfCorrectAnswers = 0;
-
-    //приветствие, запрос имени
-    $userName = run();
-
+    $needfulCountOfCorrectAnswers = 3;
+    // формируем начальные данные в зависимости от игры
     do {
-        $number = rand();
-        //выводим число на экран
-        line("Question : %s", $number);
-        //проверка на четность
-        $parityResult = isParity($number);
-        //запрос ответа пользователя
-        $userAnswer = prompt('Your answer: ');
-        // проверка ответа на корректность
-        $isUserAnswerCorrect = isCorrectAnswer($parityResult, $userAnswer);
-        // подсчет подряд отвеченных вопросов
-        if ($isUserAnswerCorrect) {
-            $countOfCorrectAnswers++;
-            line("Correct!");
-            //вывод сообщения о проигрыше, сброс счетчика ответов
+        switch ($gameName) {
+            case "brain-even" :
+                $number = rand(0,100);
+                $question = $number;
+                $rightAnswer = getRightAnswerOfEvenGame($number);
+                break;
+            case "brain-calc" :
+                $number1 = rand(0,100);
+                $number2 = rand(0,100);
+                $operations = ['+','-','*'];
+                $operator = $operations[array_rand($operations)];
+                $question = "{$number1} {$operator} {$number2}";
+                $rightAnswer = getRightAnswerOfCalcGame($number1, $number2, $operator);
+                break;
+        }
+
+        questionConsoleUotput($question);
+        $userAnswer = getUserAnswerAndConsoleOutput();
+        if ($userAnswer == $rightAnswer) {
+            rightConsoleOutput();
+            $countOfCorrectAnswers ++;
         } else {
-            $correctAnswer = ($userAnswer == 'yes') ? 'no' : 'yes';
-            line("'%s' is wrong answer ;(. Correct answer was '%s'", $userAnswer, $correctAnswer);
+            wrongConsoleOutput($userAnswer, $rightAnswer, $userName);
             $countOfCorrectAnswers = 0;
         }
     } while ($countOfCorrectAnswers !== $needfulCountOfCorrectAnswers);
 
-    line("Congratulations, %s!", $userName);
+        congratulationsConsoleOutput($userName);
+
 }
+

@@ -1,7 +1,9 @@
 {
 	"name": "vitaliy/php-project-lvl1",
 	"type": "project",
-	"bin": ["bin/brain-even"],
+	"bin": ["bin/brain-even",
+			"bin/brain-calc"
+		],
 	"authors": [{
 		"name": "Vitaliy",
 		"email": "kudrvet@gmail.com"
@@ -15,7 +17,9 @@
 	"autoload": {
 		"files": [
 			"src/Cli.php",
-			"src/Logic.php"
+			"src/Logic.php",
+			"src/games/CalcGame.php",
+			"src/games/EvenGame.php"
 		]
 	},
 	"require-dev": {
