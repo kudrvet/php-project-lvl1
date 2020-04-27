@@ -2,9 +2,9 @@
 
 namespace BrainGames\Games\CalcGame;
 
-function getRightAnswerOfCalcGame($number1,$number2,$operator)
+function getRightAnswerOfCalcGame($number1, $number2, $operator)
 {
-$rightAnswer = 0;
+    $rightAnswer = 0;
     switch ($operator) {
         case '+':
             $rightAnswer = $number1 + $number2;

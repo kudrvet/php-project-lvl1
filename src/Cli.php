@@ -12,11 +12,11 @@ function greetingConsoleOutput($gameName)
     if ($gameName == "brain-even") {
         line('Answer "yes" if the number is even, otherwise answer "no" .');
     } elseif ($gameName === "brain-calc") {
-    line("What is the result of the expression?") ;
+        line("What is the result of the expression?") ;
     } else {
-    line("There is not a game!");
+        line("There is not a game!");
     }
-    line("");
+        line("");
 }
 
 
@@ -27,7 +27,7 @@ function getUserNameAndSayHello()
     return $name;
 }
 
-function questionConsoleUotput ($question)
+function questionConsoleUotput($question)
 {
     line("Question : %s", $question);
 }
@@ -43,13 +43,13 @@ function rightConsoleOutput()
     line("Correct!");
 }
 
-function wrongConsoleOutput($userAnswer,$rightAnswer,$userName)
+function wrongConsoleOutput($userAnswer, $rightAnswer, $userName)
 {
     line("'%s' is wrong answer ;(. Correct answer was '%s'", $userAnswer, $rightAnswer);
     line("Let's try again, %s!", $userName);
 }
 
-function congratulationsConsoleOutput ($userName)
+function congratulationsConsoleOutput($userName)
 {
-    line ("Congratulations, %s!",$userName);
+    line("Congratulations, %s!", $userName);
 }
