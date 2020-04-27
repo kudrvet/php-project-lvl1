@@ -17,7 +17,7 @@
  ### Lose example
  [![asciicast](https://asciinema.org/a/66gbfB3wE0snfB0zqXIimaaUr.svg)](https://asciinema.org/a/66gbfB3wE0snfB0zqXIimaaUr)
 
-## Brain Even Game
+## Brain Calc Game
 
 ### Example
 
