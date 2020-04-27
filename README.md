@@ -5,7 +5,11 @@
 ## Setup
 
 ```sh
- composer global require vitaliy/php-project-lvl1:0.1.2
+ composer global require vitaliy/php-project-lvl1:version 
+ 
+ Verions availible:
+ 0.2 - actual !
+ 0.1.2
  ```
  [![asciicast](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj.svg)](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj)
  
