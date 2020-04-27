@@ -9,16 +9,17 @@
  ```
  [![asciicast](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj.svg)](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj)
  
- ## Run Example
+ ## Brain Even Game
 
- ### WIN
+ ### Win Example
  [![asciicast](https://asciinema.org/a/04DQW2HmuuJ8Nr8nEZwjsk6qj.svg)](https://asciinema.org/a/04DQW2HmuuJ8Nr8nEZwjsk6qj)
  
- ### LOSE 
+ ### Lose example
  [![asciicast](https://asciinema.org/a/66gbfB3wE0snfB0zqXIimaaUr.svg)](https://asciinema.org/a/66gbfB3wE0snfB0zqXIimaaUr)
 
+## Brain Even Game
 
-<script id="asciicast-ZNlq4QWKqmKpzg15K29CKToMW" src="https://asciinema.org/a/ZNlq4QWKqmKpzg15K29CKToMW.js" async></script>
+### Example
 
-<script src="https://asciinema.org/a/14.js" id="asciicast-14" async data-autoplay="true" data-size="big"></script>
+[![asciicast](https://asciinema.org/a/ZNlq4QWKqmKpzg15K29CKToMW.svg)](https://asciinema.org/a/ZNlq4QWKqmKpzg15K29CKToMW)
 
