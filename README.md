@@ -8,7 +8,8 @@
  composer global require vitaliy/php-project-lvl1:version 
  
  Verions availible:
- 0.3 - actual !
+ 0.4 - actual !
+ 0.3 
  0.2 
  0.1.2
  ```
@@ -33,3 +34,9 @@
 ### Example
 
 [![asciicast](https://asciinema.org/a/8Cnps5U0IpUUzlNFupJsrJIr7.svg)](https://asciinema.org/a/8Cnps5U0IpUUzlNFupJsrJIr7)
+
+## Brain Progression Game
+
+### Example
+
+[![asciicast](https://asciinema.org/a/eiRknqhQHkag2kOah4g6QTt96.svg)](https://asciinema.org/a/eiRknqhQHkag2kOah4g6QTt96)
