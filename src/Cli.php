@@ -9,14 +9,20 @@ function greetingConsoleOutput($gameName)
 {
     line('Welcome to the Brain Game!');
 
-    if ($gameName == "brain-even") {
-        line('Answer "yes" if the number is even, otherwise answer "no" .');
-    } elseif ($gameName === "brain-calc") {
-        line("What is the result of the expression?") ;
-    } else {
-        line("There is not a game!");
+    switch ($gameName) {
+        case "brain-even":
+            line('Answer "yes" if the number is even, otherwise answer "no" .');
+            break;
+
+        case "brain-calc":
+            line("What is the result of the expression?");
+            break;
+
+        case "brain-gcd":
+            line("Find the greatest common divisor of given numbers.");
+            break;
+            line("");
     }
-        line("");
 }
 
 

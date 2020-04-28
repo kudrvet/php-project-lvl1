@@ -2,7 +2,8 @@
 	"name": "vitaliy/php-project-lvl1",
 	"type": "project",
 	"bin": ["bin/brain-even",
-			"bin/brain-calc"
+			"bin/brain-calc",
+			 "bin/brain-gcd"
 		],
 	"authors": [{
 		"name": "Vitaliy",
@@ -19,7 +20,8 @@
 			"src/Cli.php",
 			"src/Logic.php",
 			"src/games/CalcGame.php",
-			"src/games/EvenGame.php"
+			"src/games/EvenGame.php",
+			"src/games/GcdGame.php"
 		]
 	},
 	"require-dev": {

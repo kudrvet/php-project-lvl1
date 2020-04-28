@@ -11,6 +11,7 @@ use function BrainGames\Cli\rightConsoleOutput;
 use function BrainGames\Cli\wrongConsoleOutput;
 use function BrainGames\Games\EvenGame\getRightAnswerOfEvenGame;
 use function BrainGames\Games\CalcGame\getRightAnswerOfCalcGame;
+use function BrainGames\Games\GcdGame\getRightAnswerOfGcdGame;
 
 function startGame($gameName)
 {
@@ -27,6 +28,7 @@ function startGame($gameName)
                 $question = $number;
                 $rightAnswer = getRightAnswerOfEvenGame($number);
                 break;
+
             case "brain-calc":
                 $number1 = rand(0, 100);
                 $number2 = rand(0, 100);
@@ -34,6 +36,12 @@ function startGame($gameName)
                 $operator = $operations[array_rand($operations)];
                 $question = "{$number1} {$operator} {$number2}";
                 $rightAnswer = getRightAnswerOfCalcGame($number1, $number2, $operator);
+                break;
+            case "brain-gcd":
+                $number1 = rand(0, 100);
+                $number2 = rand(0, 100);
+                $question = "{$number1} {$number2}";
+                $rightAnswer = getRightAnswerOfGcdGame($number1, $number2);
                 break;
         }
 
