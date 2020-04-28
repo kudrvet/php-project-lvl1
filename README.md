@@ -8,7 +8,8 @@
  composer global require vitaliy/php-project-lvl1:version 
  
  Verions availible:
- 0.2 - actual !
+ 0.3 - actual !
+ 0.2 
  0.1.2
  ```
  [![asciicast](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj.svg)](https://asciinema.org/a/Hdv11nGpigcos9vGidQ3qJWnj)
@@ -27,3 +28,8 @@
 
 [![asciicast](https://asciinema.org/a/ZNlq4QWKqmKpzg15K29CKToMW.svg)](https://asciinema.org/a/ZNlq4QWKqmKpzg15K29CKToMW)
 
+## Brain Gcd Game
+
+### Example
+
+[![asciicast](https://asciinema.org/a/8Cnps5U0IpUUzlNFupJsrJIr7.svg)](https://asciinema.org/a/8Cnps5U0IpUUzlNFupJsrJIr7)
