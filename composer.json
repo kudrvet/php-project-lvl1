@@ -3,7 +3,8 @@
 	"type": "project",
 	"bin": ["bin/brain-even",
 			"bin/brain-calc",
-			 "bin/brain-gcd"
+			 "bin/brain-gcd",
+		      "bin/brain-progression"
 		],
 	"authors": [{
 		"name": "Vitaliy",
@@ -21,7 +22,8 @@
 			"src/Logic.php",
 			"src/games/CalcGame.php",
 			"src/games/EvenGame.php",
-			"src/games/GcdGame.php"
+			"src/games/GcdGame.php",
+			"src/games/ProgressionGame.php"
 		]
 	},
 	"require-dev": {

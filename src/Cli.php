@@ -21,8 +21,12 @@ function greetingConsoleOutput($gameName)
         case "brain-gcd":
             line("Find the greatest common divisor of given numbers.");
             break;
-            line("");
+
+        case "brain-progression":
+            line("What number is missing in the progression?");
+            break;
     }
+    line("");
 }
 
 
