@@ -8,7 +8,8 @@
  composer global require vitaliy/php-project-lvl1:version 
  
  Verions availible:
- 0.4 - actual !
+ 1 - actual!
+ 0.4 
  0.3 
  0.2 
  0.1.2
