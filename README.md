@@ -40,3 +40,10 @@
 ### Example
 
 [![asciicast](https://asciinema.org/a/eiRknqhQHkag2kOah4g6QTt96.svg)](https://asciinema.org/a/eiRknqhQHkag2kOah4g6QTt96)
+
+## Brain Prime Game
+
+### Example
+
+[![asciicast](https://asciinema.org/a/Qe1C2ZCQR84ttj6dsBWcw1AEb.svg)](https://asciinema.org/a/Qe1C2ZCQR84ttj6dsBWcw1AEb)
+
