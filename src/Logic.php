@@ -12,9 +12,10 @@ use function BrainGames\Cli\wrongConsoleOutput;
 use function BrainGames\Games\EvenGame\getRightAnswerOfEvenGame;
 use function BrainGames\Games\CalcGame\getRightAnswerOfCalcGame;
 use function BrainGames\Games\GcdGame\getRightAnswerOfGcdGame;
+use function BrainGames\Games\PrimeGame\getRightAnswerOfPrimeGame;
 use function BrainGames\Games\ProgressionGame\generateProgression;
 use function BrainGames\Games\ProgressionGame\getQuestionOfProgressionGame;
-use function BrainGames\Games\ProgressionGame\getRightAnswerAndOfProgressionGame;
+use function BrainGames\Games\ProgressionGame\getRightAnswerOfProgressionGame;
 
 function startGame($gameName)
 {
@@ -81,9 +82,14 @@ function generateNextRound($gameName)
 
             $progression = generateProgression($firstNumber, $stepOfProgression, $lengthOfProgression);
             $missingKey = array_rand($progression);
-            $rightAnswer = getRightAnswerAndOfProgressionGame($progression, $missingKey);
+            $rightAnswer = getRightAnswerOfProgressionGame($progression, $missingKey);
             $question = getQuestionOfProgressionGame($progression, $missingKey);
             break;
+
+        case "brain-prime":
+            $number = rand(0, 3000);
+            $rightAnswer = getRightAnswerOfPrimeGame($number);
+            $question = $number;
     }
 
     return [$question,$rightAnswer];

@@ -15,7 +15,7 @@ function generateProgression($firstNumber, $stepOfProgression, $lengthOfProgress
 }
 
 
-function getRightAnswerAndOfProgressionGame($progression, $missingKey)
+function getRightAnswerOfProgressionGame($progression, $missingKey)
 {
     $rightAnswer = $progression[$missingKey];
     return $rightAnswer;

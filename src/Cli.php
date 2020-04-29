@@ -25,6 +25,10 @@ function greetingConsoleOutput($gameName)
         case "brain-progression":
             line("What number is missing in the progression?");
             break;
+
+        case "brain-prime":
+            line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
+            break;
     }
     line("");
 }
