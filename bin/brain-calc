@@ -12,9 +12,9 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function BrainGames\Logic\startGame;
+use function BrainGames\Games\CalcGame\startBrainCalc;
 
-startGame("brain-calc");
+startBrainCalc();
 
 
 

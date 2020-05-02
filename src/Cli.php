@@ -5,34 +5,12 @@ namespace BrainGames\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function greetingConsoleOutput($gameName)
+function printGameRuleToConsole($gameRule)
 {
     line('Welcome to the Brain Game!');
-
-    switch ($gameName) {
-        case "brain-even":
-            line('Answer "yes" if the number is even, otherwise answer "no" .');
-            break;
-
-        case "brain-calc":
-            line("What is the result of the expression?");
-            break;
-
-        case "brain-gcd":
-            line("Find the greatest common divisor of given numbers.");
-            break;
-
-        case "brain-progression":
-            line("What number is missing in the progression?");
-            break;
-
-        case "brain-prime":
-            line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
-            break;
-    }
+    line($gameRule);
     line("");
 }
-
 
 function getUserNameAndSayHello()
 {
