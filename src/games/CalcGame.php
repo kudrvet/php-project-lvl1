@@ -2,7 +2,9 @@
 
 namespace BrainGames\Games\CalcGame;
 
-use function BrainGames\Logic\gameFlow;
+use function BrainGames\Flow\finishGame;
+use function BrainGames\Flow\greetingUser;
+use function BrainGames\Flow\isAnswerRightAndConsoleOutput;
 
 function getRightAnswerOfCalcGame($number1, $number2, $operator)
 {
@@ -24,8 +26,6 @@ function getRightAnswerOfCalcGame($number1, $number2, $operator)
 
 function generateBrainCalcData()
 {
-//    $gameName = "brain-calc";
-
     $gameRule = "What is the result of the expression?";
 
     $number1 = rand(0, 100);
@@ -38,8 +38,32 @@ function generateBrainCalcData()
     return [$gameRule,$question,$rightAnswer];
 }
 
-function startBrainCalc()
+function startGame()
+{
+    $gameData = generateData();
+    $gameRule = $gameData[0];
+    $userName = greetingUser($gameRule);
+    $countOfCorrectAnswers = 0;
+    $needfulCountOfCorrectAnswers = 3;
+    while ($countOfCorrectAnswers !== $needfulCountOfCorrectAnswers) {
+        $gameData = generateData();
+        $isUserRight = isAnswerRightAndConsoleOutput($gameData, $userName);
+        if ($isUserRight) {
+            $countOfCorrectAnswers += 1;
+        } else {
+            $countOfCorrectAnswers = 0;
+        }
+    }
+    finishGame($userName);
+}
+
+function generateData()
 {
     $gameData = generateBrainCalcData();
-    gameFlow($gameData);
+    return $gameData;
+}
+
+function startBrainCalc()
+{
+    startGame();
 }

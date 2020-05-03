@@ -19,6 +19,8 @@ function getUserNameAndSayHello()
     return $name;
 }
 
+
+
 function questionConsoleUotput($question)
 {
     line("Question : %s", $question);
