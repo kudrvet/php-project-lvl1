@@ -2,9 +2,7 @@
 
 namespace BrainGames\Games\GcdGame;
 
-use function BrainGames\Flow\finishGame;
-use function BrainGames\Flow\greetingUser;
-use function BrainGames\Flow\isAnswerRightAndConsoleOutput;
+use function BrainGames\Flow\flow;
 
 function getRightAnswerOfGcdGame($number1, $number2)
 {
@@ -36,32 +34,8 @@ function generateBrainGcdData()
     return [$gameRule,$question,$rightAnswer];
 }
 
-function startGame()
-{
-    $gameData = generateData();
-    $gameRule = $gameData[0];
-    $userName = greetingUser($gameRule);
-    $countOfCorrectAnswers = 0;
-    $needfulCountOfCorrectAnswers = 3;
-    while ($countOfCorrectAnswers !== $needfulCountOfCorrectAnswers) {
-        $gameData = generateData();
-        $isUserRight = isAnswerRightAndConsoleOutput($gameData, $userName);
-        if ($isUserRight) {
-            $countOfCorrectAnswers += 1;
-        } else {
-            $countOfCorrectAnswers = 0;
-        }
-    }
-    finishGame($userName);
-}
-
-function generateData()
-{
-    $gameData = generateBrainGcdData();
-    return $gameData;
-}
-
 function startBrainGcd()
 {
-    startGame();
+    $functionName = "BrainGames\Games\GcdGame\generateBrainGcdData";
+    flow($functionName);
 }

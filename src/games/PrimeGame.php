@@ -2,9 +2,7 @@
 
 namespace BrainGames\Games\PrimeGame;
 
-use function BrainGames\Flow\finishGame;
-use function BrainGames\Flow\greetingUser;
-use function BrainGames\Flow\isAnswerRightAndConsoleOutput;
+use function BrainGames\Flow\flow;
 
 function getRightAnswerOfPrimeGame($number)
 {
@@ -29,32 +27,8 @@ function generateBrainPrimeData()
     return [$gameRule,$question,$rightAnswer];
 }
 
-function startGame()
-{
-    $gameData = generateData();
-    $gameRule = $gameData[0];
-    $userName = greetingUser($gameRule);
-    $countOfCorrectAnswers = 0;
-    $needfulCountOfCorrectAnswers = 3;
-    while ($countOfCorrectAnswers !== $needfulCountOfCorrectAnswers) {
-        $gameData = generateData();
-        $isUserRight = isAnswerRightAndConsoleOutput($gameData, $userName);
-        if ($isUserRight) {
-            $countOfCorrectAnswers += 1;
-        } else {
-            $countOfCorrectAnswers = 0;
-        }
-    }
-    finishGame($userName);
-}
-
-function generateData()
-{
-    $gameData = generateBrainPrimeData();
-    return $gameData;
-}
-
 function startBrainPrime()
 {
-    startGame();
+    $functionName = "BrainGames\Games\PrimeGame\generateBrainPrimeData";
+    flow($functionName);
 }
