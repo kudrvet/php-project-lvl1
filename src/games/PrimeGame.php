@@ -15,20 +15,24 @@ function getRightAnswerOfPrimeGame($number)
     return "yes";
 }
 
-function generateBrainPrimeData()
+function generateBrainPrimeData($roundsCount)
 {
     $gameRule = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
 
-    $number = rand(0, 3000);
-    $rightAnswer = getRightAnswerOfPrimeGame($number);
-    $question = $number;
+    $pairs = [];
+    for ($i = 0; $i < $roundsCount; $i++) {
+        $number = rand(0, 3000);
+        $rightAnswer = getRightAnswerOfPrimeGame($number);
+        $question = $number;
 
-
-    return [$gameRule,$question,$rightAnswer];
+        $pairs[$question] = $rightAnswer;
+    }
+    return [$gameRule,$pairs];
 }
 
 function startBrainPrime()
 {
-    $functionName = "BrainGames\Games\PrimeGame\generateBrainPrimeData";
-    flow($functionName);
+    $roundsCount = 3;
+    $gameData = generateBrainPrimeData($roundsCount);
+    flow($gameData);
 }

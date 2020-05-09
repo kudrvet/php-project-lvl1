@@ -22,22 +22,27 @@ function getRightAnswerOfCalcGame($number1, $number2, $operator)
     return $rightAnswer;
 }
 
-function generateBrainCalcData()
+function generateBrainCalcData($roundsCount)
 {
     $gameRule = "What is the result of the expression?";
 
-    $number1 = rand(0, 100);
-    $number2 = rand(0, 100);
-    $operations = ['+', '-', '*'];
-    $operator = $operations[array_rand($operations)];
-    $question = "{$number1} {$operator} {$number2}";
-    $rightAnswer = getRightAnswerOfCalcGame($number1, $number2, $operator);
+    $pairs = [];
+    for ($i = 0; $i < $roundsCount; $i++) {
+        $number1 = rand(0, 100);
+        $number2 = rand(0, 100);
+        $operations = ['+', '-', '*'];
+        $operator = $operations[array_rand($operations)];
+        $question = "{$number1} {$operator} {$number2}";
+        $rightAnswer = getRightAnswerOfCalcGame($number1, $number2, $operator);
 
-    return [$gameRule,$question,$rightAnswer];
+        $pairs[$question] = $rightAnswer;
+    }
+    return [$gameRule,$pairs];
 }
 
 function startBrainCalc()
 {
-    $functionName = "BrainGames\Games\CalcGame\generateBrainCalcData";
-    flow($functionName);
+    $roundsCount = 3;
+    $gameData = generateBrainCalcData($roundsCount);
+    flow($gameData);
 }

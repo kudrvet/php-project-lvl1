@@ -32,30 +32,32 @@ function getQuestionOfProgressionGame($progressionArray, $missingKey)
     return $question;
 }
 
-function generateBrainProgressionData()
+function generateBrainProgressionData($roundsCount)
 {
     $gameRule = "What number is missing in the progression?";
 
-    $firstNumber = rand(-100, 100);
+    $pairs = [];
+    for ($i = 0; $i < $roundsCount; $i++) {
+        $firstNumber = rand(-100, 100);
 
-    do {
-        $stepOfProgression = rand(-10, 10);
-    } while ($stepOfProgression == 0);
+        do {
+            $stepOfProgression = rand(-10, 10);
+        } while ($stepOfProgression == 0);
 
-    $lengthOfProgression = 10;
+        $lengthOfProgression = 10;
 
-    $progression = generateProgression($firstNumber, $stepOfProgression, $lengthOfProgression);
-    $missingKey = array_rand($progression);
-    $rightAnswer = getRightAnswerOfProgressionGame($progression, $missingKey);
-    $question = getQuestionOfProgressionGame($progression, $missingKey);
-
-    return [$gameRule,$question,$rightAnswer];
+        $progression = generateProgression($firstNumber, $stepOfProgression, $lengthOfProgression);
+        $missingKey = array_rand($progression);
+        $rightAnswer = getRightAnswerOfProgressionGame($progression, $missingKey);
+        $question = getQuestionOfProgressionGame($progression, $missingKey);
+        $pairs[$question] = $rightAnswer;
+    }
+    return [$gameRule,$pairs];
 }
-
-
 
 function startBrainProgression()
 {
-    $functionName = "BrainGames\Games\ProgressionGame\generateBrainProgressionData";
-    flow($functionName);
+    $roundsCount = 3;
+    $gameData = generateBrainProgressionData($roundsCount);
+    flow($gameData);
 }
