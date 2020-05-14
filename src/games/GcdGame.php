@@ -26,21 +26,20 @@ function generateBrainGcdData($roundsCount)
 {
     $gameRule = "Find the greatest common divisor of given numbers.";
 
-    $pairs = [];
+    $questionToAnswerMap = [];
     for ($i = 0; $i < $roundsCount; $i++) {
         $number1 = rand(0, 100);
         $number2 = rand(0, 100);
         $question = "{$number1} {$number2}";
         $rightAnswer = getRightAnswerOfGcdGame($number1, $number2);
 
-        $pairs[$question] = $rightAnswer;
+        $questionToAnswerMap[$question] = $rightAnswer;
     }
-    return [$gameRule,$pairs];
+    return [$gameRule,$questionToAnswerMap];
 }
 
 function startBrainGcd()
 {
-    $roundsCount = 3;
-    $gameData = generateBrainGcdData($roundsCount);
-    flow($gameData);
+    $functionName = "BrainGames\Games\GcdGame\generateBrainGcdData";
+    flow($functionName);
 }

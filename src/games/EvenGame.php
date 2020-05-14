@@ -4,31 +4,32 @@ namespace BrainGames\Games\EvenGame;
 
 use function BrainGames\Flow\flow;
 
-function getRightAnswerOfEvenGame($number)
+function isEven($number)
 {
-    $result = ($number % 2 == 0) ? 'yes' : 'no';
-    return $result;
+    return ($number % 2 == 0) ? true : false;
+}
+
+function getRightAnswerOfEvenGame($isEven)
+{
+    return ($isEven) ? 'yes' : 'no';
 }
 
 function generateBrainEvenData($roundsCount)
 {
     $gameRule = 'Answer "yes" if the number is even, otherwise answer "no"';
 
-    $pairs = [];
+    $questionToAnswerMap = [];
     for ($i = 0; $i < $roundsCount; $i++) {
-        $number = rand(0, 100);
-        $question = $number;
-        $rightAnswer = getRightAnswerOfEvenGame($number);
-
-        $pairs[$question] = $rightAnswer;
+        $question = rand(0, 100);
+        $rightAnswer = getRightAnswerOfEvenGame(isEven($question));
+        $questionToAnswerMap[$question] = $rightAnswer;
     }
 
-    return [$gameRule,$pairs];
+    return [$gameRule,$questionToAnswerMap];
 }
 
 function startBrainEven()
 {
-    $roundsCount = 3;
-    $gameData = generateBrainEvenData($roundsCount);
-    flow($gameData);
+    $functionName = "BrainGames\Games\EvenGame\generateBrainEvenData";
+    flow($functionName);
 }

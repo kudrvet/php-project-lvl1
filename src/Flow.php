@@ -2,38 +2,28 @@
 
 namespace BrainGames\Flow;
 
-use function BrainGames\Cli\congratulationsConsoleOutput;
-use function BrainGames\Cli\getUserAnswerAndConsoleOutput;
 use function BrainGames\Cli\getUserNameAndSayHello;
 use function BrainGames\Cli\printGameRuleToConsole;
-use function BrainGames\Cli\questionConsoleUotput;
-use function BrainGames\Cli\rightConsoleOutput;
-use function BrainGames\Cli\wrongConsoleOutput;
+use function cli\line;
+use function cli\prompt;
 
-function flow($gameData)
+function flow($functionName, $roundsCount = 3)
 {
-    [$gameRule,$pairs] = $gameData;
+    [$gameRule,$questionToAnswerMap] = $functionName($roundsCount);
     printGameRuleToConsole($gameRule);
     $userName = getUserNameAndSayHello();
 
-    $isLoose = 0;
-    foreach ($pairs as $question => $rightAnswer) {
-        questionConsoleUotput($question);
-        $userAnswer = getUserAnswerAndConsoleOutput();
+    foreach ($questionToAnswerMap as $question => $rightAnswer) {
+        line("Question : %s", $question);
+        $userAnswer = prompt('Your answer: ');
         if ($userAnswer == $rightAnswer) {
-            rightConsoleOutput();
+            line("Correct!");
         } else {
-            wrongConsoleOutput($userAnswer, $rightAnswer, $userName);
-            $isLoose = 1;
-            break;
+            line("'%s' is wrong answer ;(. Correct answer was '%s'", $userAnswer, $rightAnswer);
+            line("Let's try again, %s!", $userName);
+            return;
         }
     }
-    if (!$isLoose) {
-        finishGame($userName);
-    }
-}
 
-function finishGame($userName)
-{
-    congratulationsConsoleOutput($userName);
+    line("Congratulations, %s!", $userName);
 }

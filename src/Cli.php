@@ -18,32 +18,3 @@ function getUserNameAndSayHello()
     line("Hello, %s!", $name);
     return $name;
 }
-
-
-
-function questionConsoleUotput($question)
-{
-    line("Question : %s", $question);
-}
-
-function getUserAnswerAndConsoleOutput()
-{
-    $userAnswer = prompt('Your answer: ');
-    return $userAnswer;
-}
-
-function rightConsoleOutput()
-{
-    line("Correct!");
-}
-
-function wrongConsoleOutput($userAnswer, $rightAnswer, $userName)
-{
-    line("'%s' is wrong answer ;(. Correct answer was '%s'", $userAnswer, $rightAnswer);
-    line("Let's try again, %s!", $userName);
-}
-
-function congratulationsConsoleOutput($userName)
-{
-    line("Congratulations, %s!", $userName);
-}

@@ -1,7 +1,8 @@
 {
 	"name": "vitaliy/php-project-lvl1",
 	"type": "project",
-	"bin": ["bin/brain-even",
+	"bin": [
+		    "bin/brain-even",
 			"bin/brain-calc",
 		    "bin/brain-gcd",
 		    "bin/brain-progression",
