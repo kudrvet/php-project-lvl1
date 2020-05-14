@@ -8,8 +8,9 @@
 ```sh
  composer global require vitaliy/php-project-lvl1:version 
  
- Versions availible:
- 1 - actual!
+ Versions available:
+ 1.1 - actual!
+ 1 
  0.4 
  0.3 
  0.2 
