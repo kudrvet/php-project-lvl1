@@ -1,10 +1,12 @@
 <?php
 
-namespace BrainGames\Games\GcdGame;
+namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Flow\flow;
 
-function getRightAnswerOfGcdGame($number1, $number2)
+use const BrainGames\Flow\ROUNDS_COUNT;
+
+function getGCD($number1, $number2)
 {
     if ($number1 < $number2) {
         [$number1, $number2] = [$number2, $number1];
@@ -22,24 +24,24 @@ function getRightAnswerOfGcdGame($number1, $number2)
     } while (1);
 }
 
+function startBrainGcd()
+{
+    $gameData = generateBrainGcdData(ROUNDS_COUNT);
+    flow($gameData);
+}
+
 function generateBrainGcdData($roundsCount)
 {
     $gameRule = "Find the greatest common divisor of given numbers.";
 
-    $questionToAnswerMap = [];
+    $gameData = [];
     for ($i = 0; $i < $roundsCount; $i++) {
         $number1 = rand(0, 100);
         $number2 = rand(0, 100);
         $question = "{$number1} {$number2}";
-        $rightAnswer = getRightAnswerOfGcdGame($number1, $number2);
+        $rightAnswer = getGCD($number1, $number2);
 
-        $questionToAnswerMap[$question] = $rightAnswer;
+        $gameData[$question] = $rightAnswer;
     }
-    return [$gameRule,$questionToAnswerMap];
-}
-
-function startBrainGcd()
-{
-    $functionName = "BrainGames\Games\GcdGame\generateBrainGcdData";
-    flow($functionName);
+    return [$gameRule,$gameData];
 }

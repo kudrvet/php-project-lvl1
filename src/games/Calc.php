@@ -1,12 +1,13 @@
 <?php
 
-namespace BrainGames\Games\CalcGame;
+namespace BrainGames\Games\Calc;
 
 use function BrainGames\Flow\flow;
 
+use const BrainGames\Flow\ROUNDS_COUNT;
+
 function calculate($number1, $number2, $operator)
 {
-    $rightAnswer = 0;
     switch ($operator) {
         case '+':
             $rightAnswer = $number1 + $number2;
@@ -26,7 +27,7 @@ function generateBrainCalcData($roundsCount)
 {
     $gameRule = "What is the result of the expression?";
 
-    $questionToAnswerMap = [];
+    $gameData = [];
     for ($i = 0; $i < $roundsCount; $i++) {
         $number1 = rand(0, 100);
         $number2 = rand(0, 100);
@@ -35,13 +36,13 @@ function generateBrainCalcData($roundsCount)
         $question = "{$number1} {$operator} {$number2}";
         $rightAnswer = calculate($number1, $number2, $operator);
 
-        $questionToAnswerMap[$question] = $rightAnswer;
+        $gameData[$question] = $rightAnswer;
     }
-    return [$gameRule,$questionToAnswerMap];
+    return [$gameRule,$gameData];
 }
 
 function startBrainCalc()
 {
-    $functionName = "BrainGames\Games\CalcGame\generateBrainCalcData";
-    flow($functionName);
+    $gameData = generateBrainCalcData(ROUNDS_COUNT);
+    flow($gameData);
 }

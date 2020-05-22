@@ -2,18 +2,21 @@
 
 namespace BrainGames\Flow;
 
-use function BrainGames\Cli\getUserNameAndSayHello;
-use function BrainGames\Cli\printGameRuleToConsole;
 use function cli\line;
 use function cli\prompt;
 
-function flow($functionName, $roundsCount = 3)
-{
-    [$gameRule,$questionToAnswerMap] = $functionName($roundsCount);
-    printGameRuleToConsole($gameRule);
-    $userName = getUserNameAndSayHello();
+const ROUNDS_COUNT = 3;
 
-    foreach ($questionToAnswerMap as $question => $rightAnswer) {
+function flow($gameData)
+{
+    [$gameRule, $data] = $gameData;
+    line('Welcome to the Brain Game!');
+    line($gameRule);
+    line("");
+    $userName = prompt('May I have your name?');
+    line("Hello, %s!", $userName);
+
+    foreach ($data as $question => $rightAnswer) {
         line("Question : %s", $question);
         $userAnswer = prompt('Your answer: ');
         if ($userAnswer == $rightAnswer) {
