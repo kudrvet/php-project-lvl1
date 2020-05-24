@@ -13,7 +13,6 @@ function isEven($number)
 
 function generateBrainEvenData($roundsCount)
 {
-    $gameRule = 'Answer "yes" if the number is even, otherwise answer "no"';
 
     $gameData = [];
     for ($i = 0; $i < $roundsCount; $i++) {
@@ -22,11 +21,12 @@ function generateBrainEvenData($roundsCount)
         $gameData[$question] = $rightAnswer;
     }
 
-    return [$gameRule,$gameData];
+    return $gameData;
 }
 
 function startBrainEven()
 {
+    $gameRule = 'Answer "yes" if the number is even, otherwise answer "no"';
     $gameData = generateBrainEvenData(ROUNDS_COUNT);
-    flow($gameData);
+    flow($gameRule, $gameData);
 }

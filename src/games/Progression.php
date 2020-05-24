@@ -33,7 +33,6 @@ function getQuestionOfProgressionGame($progressionArray, $rightAnswer)
 
 function generateBrainProgressionData($roundsCount)
 {
-    $gameRule = "What number is missing in the progression?";
 
     $gameData = [];
     for ($i = 0; $i < $roundsCount; $i++) {
@@ -49,11 +48,13 @@ function generateBrainProgressionData($roundsCount)
         $question = getQuestionOfProgressionGame($progression, $rightAnswer);
         $gameData[$question] = $rightAnswer;
     }
-    return [$gameRule,$gameData];
+
+    return $gameData;
 }
 
 function startBrainProgression()
 {
+    $gameRule = "What number is missing in the progression?";
     $gameData = generateBrainProgressionData(ROUNDS_COUNT);
-    flow($gameData);
+    flow($gameRule, $gameData);
 }

@@ -7,16 +7,16 @@ use function cli\prompt;
 
 const ROUNDS_COUNT = 3;
 
-function flow($gameData)
+function flow($gameRule, $gameData)
 {
-    [$gameRule, $data] = $gameData;
+
     line('Welcome to the Brain Game!');
     line($gameRule);
     line("");
     $userName = prompt('May I have your name?');
     line("Hello, %s!", $userName);
 
-    foreach ($data as $question => $rightAnswer) {
+    foreach ($gameData as $question => $rightAnswer) {
         line("Question : %s", $question);
         $userAnswer = prompt('Your answer: ');
         if ($userAnswer == $rightAnswer) {

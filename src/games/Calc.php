@@ -25,8 +25,6 @@ function calculate($number1, $number2, $operator)
 
 function generateBrainCalcData($roundsCount)
 {
-    $gameRule = "What is the result of the expression?";
-
     $gameData = [];
     for ($i = 0; $i < $roundsCount; $i++) {
         $number1 = rand(0, 100);
@@ -38,11 +36,12 @@ function generateBrainCalcData($roundsCount)
 
         $gameData[$question] = $rightAnswer;
     }
-    return [$gameRule,$gameData];
+    return $gameData;
 }
 
 function startBrainCalc()
 {
+    $gameRule = "What is the result of the expression?";
     $gameData = generateBrainCalcData(ROUNDS_COUNT);
-    flow($gameData);
+    flow($gameRule, $gameData);
 }
