@@ -21,7 +21,7 @@ function isPrime($number)
     return true;
 }
 
-function generateBrainPrimeData($roundsCount)
+function generateData($roundsCount)
 {
 
     $gameData = [];
@@ -37,6 +37,6 @@ function generateBrainPrimeData($roundsCount)
 function startBrainPrime()
 {
     $gameRule = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
-    $gameData = generateBrainPrimeData(ROUNDS_COUNT);
+    $gameData = generateData(ROUNDS_COUNT);
     flow($gameRule, $gameData);
 }

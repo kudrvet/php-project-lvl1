@@ -17,26 +17,17 @@ function generateProgression($firstNumber, $step, $lengthOfProgression)
     return $progression;
 }
 
-function getRightAnswerOfProgressionGame($firstNumber, $step, $lengthOfProgression)
+function getAnswer($firstNumber, $step, $lengthOfProgression)
 {
     return $firstNumber + rand(0, $lengthOfProgression - 1) * $step;
 }
 
-function getQuestionOfProgressionGame($progressionArray, $rightAnswer)
-{
-    $progression = $progressionArray;
-    $indexOfRightAnswer = array_search($rightAnswer, $progression);
-    $progression[$indexOfRightAnswer] = '..';
-
-    return implode(" ", $progression);
-}
-
-function generateBrainProgressionData($roundsCount)
+function generateData($roundsCount)
 {
 
     $gameData = [];
+    $lengthOfProgression = 10;
     for ($i = 0; $i < $roundsCount; $i++) {
-        $lengthOfProgression = 10;
         $firstNumber = rand(-100, 100);
 
         do {
@@ -44,8 +35,12 @@ function generateBrainProgressionData($roundsCount)
         } while ($stepOfProgression == 0);
 
         $progression = generateProgression($firstNumber, $stepOfProgression, $lengthOfProgression);
-        $rightAnswer = getRightAnswerOfProgressionGame($firstNumber, $stepOfProgression, $lengthOfProgression);
-        $question = getQuestionOfProgressionGame($progression, $rightAnswer);
+        $indexOfRightAnswer = rand(0, $lengthOfProgression - 1);
+        $rightAnswer = $firstNumber + $indexOfRightAnswer * $stepOfProgression;
+        $progressionWithHidden = $progression;
+        $progressionWithHidden[$indexOfRightAnswer] = '..';
+        $question = implode(" ", $progressionWithHidden);
+
         $gameData[$question] = $rightAnswer;
     }
 
@@ -55,6 +50,6 @@ function generateBrainProgressionData($roundsCount)
 function startBrainProgression()
 {
     $gameRule = "What number is missing in the progression?";
-    $gameData = generateBrainProgressionData(ROUNDS_COUNT);
+    $gameData = generateData(ROUNDS_COUNT);
     flow($gameRule, $gameData);
 }
