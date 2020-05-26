@@ -17,7 +17,7 @@
   "description": "brain-games php-package",
   "license": "MIT",
   "scripts" : {
-  "phpcs":"phpcs"
+    "phpcs":"phpcs"
   },
   "require": {
     "wp-cli/php-cli-tools": "^0.11.11"
