@@ -9,7 +9,6 @@ const ROUNDS_COUNT = 3;
 
 function flow($gameRule, $gameData)
 {
-
     line('Welcome to the Brain Game!');
     line($gameRule);
     line("");
